@@ -42,7 +42,6 @@ public class SpotService {
                         .ownerName(req.getOwnerName())
                         .spotName(req.getSpotName())
                         .address(req.getAddress())
-                        .thumbnailUrl(req.getThumbnailUrl())
                         .text1(req.getText1())
                         .imageUrl1(req.getImageUrl1())
                         .text2(req.getText2())

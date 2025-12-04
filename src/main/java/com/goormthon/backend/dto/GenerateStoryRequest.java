@@ -10,7 +10,6 @@ public class GenerateStoryRequest {
     private String ownerName;
     private String spotName;
     private String address;
-    private String thumbnailUrl;
 
     private String text1;
     private String imageUrl1;
