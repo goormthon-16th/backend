@@ -10,14 +10,15 @@ spec:
     - host: goormthon-1.goorm.training
       http:
         paths:
-          - path: /healthz(/|$)(.*)
+          - path: /api(/|$)(.*)
             pathType: Prefix
             backend:
               service:
                 name: backend-service
                 port:
                   number: 80
-          - path: /api(/|$)(.*)
+
+          - path: /swagger-ui
             pathType: Prefix
             backend:
               service:
