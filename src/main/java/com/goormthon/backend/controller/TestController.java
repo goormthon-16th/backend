@@ -1,6 +1,6 @@
 package com.goormthon.backend.controller;
 
-import com.goormthon.backend.domain.TestEntity;
+import com.goormthon.backend.entity.TestEntity;
 import com.goormthon.backend.repository.TestRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +13,7 @@ public class TestController {
 
     @GetMapping("/ping")
     public String ping() {
-        return "pong";
+        return "pong2";
     }
 
     @PostMapping("/create")
