@@ -25,3 +25,11 @@ spec:
                 name: backend-service
                 port:
                   number: 80
+
+          - path: /v3/api-docs
+            pathType: Prefix
+            backend:
+              service:
+                name: backend-service
+                port:
+                  number: 80
