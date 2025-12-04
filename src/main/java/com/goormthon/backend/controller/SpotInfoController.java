@@ -9,12 +9,11 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/spots")
 public class SpotInfoController {
 
     private final SpotInfoService service;
 
-    @PostMapping
+    @PostMapping("/spots")
     public ResponseEntity<CreateSpotResponse> createSpot(
             @RequestBody CreateSpotRequest req
     ) {
