@@ -42,8 +42,9 @@ spec:
             httpGet:
               path: /healthz
               port: http
-            failureThreshold: 1
-            periodSeconds: 60
+            initialDelaySeconds: 10
+            failureThreshold: 5
+            periodSeconds: 10
             terminationGracePeriodSeconds: 60
       volumes:
         - name: config-volume
