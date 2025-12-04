@@ -38,14 +38,6 @@ spec:
             - name: config-volume
               mountPath: /app/config
               readOnly: true
-          livenessProbe:
-            httpGet:
-              path: /healthz
-              port: http
-            initialDelaySeconds: 10
-            failureThreshold: 5
-            periodSeconds: 10
-            terminationGracePeriodSeconds: 60
       volumes:
         - name: config-volume
           configMap:
