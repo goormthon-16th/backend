@@ -12,6 +12,7 @@ spec:
       labels:
         app: backend
     spec:
+      serviceAccountName: goormthon-1
       containers:
         - name: backend
           env:
