@@ -6,7 +6,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/test")
 @RequiredArgsConstructor
 public class TestController {
 
@@ -25,5 +24,10 @@ public class TestController {
     @GetMapping("/{id}")
     public TestEntity get(@PathVariable Long id) {
         return testRepository.findById(id).orElse(null);
+    }
+
+    @GetMapping("/healthz")
+    public String healthz() {
+        return "OK";
     }
 }

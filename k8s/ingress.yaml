@@ -9,6 +9,13 @@ spec:
     - host: goormthon-1.goorm.training #FIXME:
       http:
         paths:
+          - path: /healthz
+            pathType: Prefix
+            backend:
+              service:
+                name: backend-service
+                port:
+                  number: 80
           - path: /api
             pathType: Prefix
             backend:
