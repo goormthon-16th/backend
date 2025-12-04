@@ -1,0 +1,24 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../base
+
+# namespace: goormthon-1 # fix me
+# ArgoCD 사용 시 비워도 됩니다. 대신 ArgoCD 에서 namespace를 지정해 주세요.
+
+images:
+  - name: mysql
+    newTag: lts
+
+#patches:
+#  - target:
+#      kind: Secret
+#      name: mysql-secret
+#    patch: |
+#      - op: replace
+#        path: /stringData
+#        value:
+#          MYSQL_USER: myuser
+#          MYSQL_PASSWORD: mypass123
+#          MYSQL_DATABASE: mydb
