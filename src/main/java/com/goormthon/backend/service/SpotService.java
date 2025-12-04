@@ -22,8 +22,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class SpotService {
 
-    private final SpotRepository spotRepository;
-
     private final RestTemplate restTemplate = new RestTemplate();
 
     @Value("${gemini.api.url}")
@@ -36,18 +34,6 @@ public class SpotService {
     public GenerateStoryResponse generateStory(GenerateStoryRequest req) {
         String prompt = createPrompt(req);
         String aiStory = callGeminiApi(prompt);
-
-        Spot saved = spotRepository.save(
-                Spot.builder()
-                        .ownerName(req.getOwnerName())
-                        .spotName(req.getSpotName())
-                        .address(req.getAddress())
-                        .text1(req.getText1())
-                        .text2(req.getText2())
-                        .text3(req.getText3())
-                        .generatedStory(aiStory)
-                        .build()
-        );
 
         return new GenerateStoryResponse(aiStory);
     }
