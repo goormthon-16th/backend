@@ -47,6 +47,7 @@ public class SpotInfoService {
     public List<SpotListResponse> getAllSpots() {
         return repository.findAll()
                 .stream()
+                .filter(spot -> spot.getId() > 10)
                 .map(spot -> SpotListResponse.builder()
                         .spotId(spot.getId())
                         .spotName(spot.getSpotName())
@@ -54,4 +55,5 @@ public class SpotInfoService {
                         .build())
                 .toList();
     }
+
 }
