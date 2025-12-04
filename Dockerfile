@@ -1,5 +1,5 @@
 # 1) Build Stage (Jar 빌드)
-FROM gradle:8.5-jdk21-alpine AS builder
+FROM gradle:8.14-jdk21-alpine AS builder
 WORKDIR /app
 COPY . .
 RUN gradle clean bootJar --no-daemon
