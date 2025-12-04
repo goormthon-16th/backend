@@ -1,3 +1,4 @@
 {
-  "ENV": "prod"
+  "GREETING": "Hello from Backend",
+  "PORT": 8080
 }
