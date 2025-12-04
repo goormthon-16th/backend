@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: backend-deployment
 spec:
-  replicas: 2 #FIXME: replica 수 조정
+  replicas: 2
   selector:
     matchLabels:
       app: backend
@@ -18,7 +18,34 @@ spec:
           envFrom:
             - secretRef:
                 name: backend-secret
+
           env:
+            # --- AWS 설정 ---
+            - name: AWS_REGION
+              valueFrom:
+                secretKeyRef:
+                  name: aws-s3-secret
+                  key: AWS_REGION
+
+            - name: AWS_S3_BUCKET_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: aws-s3-secret
+                  key: AWS_S3_BUCKET_NAME
+
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: aws-s3-secret
+                  key: AWS_ACCESS_KEY_ID
+
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: aws-s3-secret
+                  key: AWS_SECRET_ACCESS_KEY
+
+            # --- DB 설정 ---
             - name: SPRING_DATASOURCE_URL
               value: "jdbc:mysql://mysql:3306/gyuldb"
 
@@ -33,18 +60,22 @@ spec:
                 secretKeyRef:
                   name: mysql-secret
                   key: MYSQL_PASSWORD
-          image: 837126493345.dkr.ecr.ap-northeast-2.amazonaws.com/goormthon-1/backend:build-35
+
+          image: 837126493345.dkr.ecr.ap-northeast-2.amazonaws.com/goormthon-1/backend:build-33
           ports:
             - name: http
               containerPort: 8080
+
           volumeMounts:
             - name: config-volume
               mountPath: /app/config
               readOnly: true
+
       volumes:
         - name: config-volume
           configMap:
             name: backend-config
+
 ---
 apiVersion: v1
 kind: Service
