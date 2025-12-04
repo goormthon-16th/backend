@@ -1,6 +1,7 @@
 package com.goormthon.backend.service;
 
 import com.goormthon.backend.dto.CreateSpotRequest;
+import com.goormthon.backend.dto.SpotResponse;
 import com.goormthon.backend.entity.SpotInfo;
 import com.goormthon.backend.repository.SpotInfoRepository;
 import lombok.RequiredArgsConstructor;
@@ -24,5 +25,19 @@ public class SpotInfoService {
 
         repository.save(spot);
         return spot.getId();
+    }
+
+    public SpotResponse getSpot(Long spotId) {
+        SpotInfo spot = repository.findById(spotId)
+                .orElseThrow(() -> new IllegalArgumentException("해당 스팟이 존재하지 않습니다. id=" + spotId));
+
+        return SpotResponse.builder()
+                .spotId(spot.getId())
+                .spotName(spot.getSpotName())
+                .address(spot.getAddress())
+                .storyTitle(spot.getStoryTitle())
+                .storyContent(spot.getStoryContent())
+                .imageUrls(spot.getImageUrls())
+                .build();
     }
 }
