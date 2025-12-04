@@ -15,6 +15,9 @@ spec:
       serviceAccountName: goormthon-1
       containers:
         - name: backend
+          envFrom:
+            - secretRef:
+                name: backend-secret
           env:
             - name: SPRING_DATASOURCE_URL
               value: "jdbc:mysql://mysql:3306/gyuldb"

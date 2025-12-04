@@ -28,3 +28,8 @@ springdoc:
     config-url: /api/v3/api-docs/swagger-config
     url: /api/v3/api-docs
     path: /api/swagger-ui.html
+
+gemini:
+  api:
+    key: ${GEMINI_API_KEY}
+    url: "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent"

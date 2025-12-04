@@ -1,4 +1,4 @@
-package com.goormthon.backend.domain;
+package com.goormthon.backend.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
