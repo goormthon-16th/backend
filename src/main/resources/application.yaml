@@ -20,3 +20,11 @@ spring:
 
 server:
   port: 8080
+
+springdoc:
+  api-docs:
+    path: /api/v3/api-docs
+  swagger-ui:
+    config-url: /api/v3/api-docs/swagger-config
+    url: /api/v3/api-docs
+    path: /api/swagger-ui.html
