@@ -7,7 +7,6 @@ resources:
   - backend.yaml
   - mysql/base
   - ingress.yaml
-  - config/application.yaml
   # - ingress.yaml # API 호출 방식이 Client-Side인 경우 주석 해제
 
 configMapGenerator:
