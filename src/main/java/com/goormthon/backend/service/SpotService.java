@@ -43,11 +43,8 @@ public class SpotService {
                         .spotName(req.getSpotName())
                         .address(req.getAddress())
                         .text1(req.getText1())
-                        .imageUrl1(req.getImageUrl1())
                         .text2(req.getText2())
-                        .imageUrl2(req.getImageUrl2())
                         .text3(req.getText3())
-                        .imageUrl3(req.getImageUrl3())
                         .generatedStory(aiStory)
                         .build()
         );
