@@ -13,7 +13,7 @@ public class TestController {
 
     @GetMapping("/ping")
     public String ping() {
-        return "pong2";
+        return "pong22";
     }
 
     @PostMapping("/create")
