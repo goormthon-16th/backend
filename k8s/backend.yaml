@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: 837126493345.dkr.ecr.ap-northeast-2.amazonaws.com/goormthon-1/backend:latest #FIXME:
+          image: 837126493345.dkr.ecr.ap-northeast-2.amazonaws.com/goormthon-1/backend:build-14
           ports:
             - containerPort: 8080
           volumeMounts:
