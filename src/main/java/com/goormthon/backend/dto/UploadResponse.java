@@ -1,3 +1,3 @@
-//package com.goormthon.backend.dto;
-//
-//public record UploadResponse(String url) {}
+package com.goormthon.backend.dto;
+
+public record UploadResponse(String url) {}

@@ -1,11 +1,14 @@
 package com.goormthon.backend.service;
 
 import com.goormthon.backend.dto.CreateSpotRequest;
+import com.goormthon.backend.dto.SpotListResponse;
 import com.goormthon.backend.dto.SpotResponse;
 import com.goormthon.backend.entity.SpotInfo;
 import com.goormthon.backend.repository.SpotInfoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -39,5 +42,16 @@ public class SpotInfoService {
                 .storyContent(spot.getStoryContent())
                 .imageUrls(spot.getImageUrls())
                 .build();
+    }
+
+    public List<SpotListResponse> getAllSpots() {
+        return repository.findAll()
+                .stream()
+                .map(spot -> SpotListResponse.builder()
+                        .spotId(spot.getId())
+                        .spotName(spot.getSpotName())
+                        .storyTitle(spot.getStoryTitle())
+                        .build())
+                .toList();
     }
 }
