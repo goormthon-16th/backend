@@ -18,7 +18,7 @@ spec:
                 port:
                   number: 80
 
-          - path: /swagger-ui
+          - path: /api/swagger-ui
             pathType: Prefix
             backend:
               service:
@@ -26,7 +26,7 @@ spec:
                 port:
                   number: 80
 
-          - path: /v3/api-docs
+          - path: /api/v3/api-docs
             pathType: Prefix
             backend:
               service:
