@@ -31,11 +31,19 @@ spec:
                   key: MYSQL_PASSWORD
           image: 837126493345.dkr.ecr.ap-northeast-2.amazonaws.com/goormthon-1/backend:build-14
           ports:
-            - containerPort: 8080
+            - name: http
+              containerPort: 8080
           volumeMounts:
             - name: config-volume
               mountPath: /app/config
               readOnly: true
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+            failureThreshold: 1
+            periodSeconds: 60
+            terminationGracePeriodSeconds: 60
       volumes:
         - name: config-volume
           configMap:
