@@ -33,7 +33,7 @@ spec:
                 secretKeyRef:
                   name: mysql-secret
                   key: MYSQL_PASSWORD
-          image: 837126493345.dkr.ecr.ap-northeast-2.amazonaws.com/goormthon-1/backend:build-15
+          image: 837126493345.dkr.ecr.ap-northeast-2.amazonaws.com/goormthon-1/backend:build-16
           ports:
             - name: http
               containerPort: 8080
