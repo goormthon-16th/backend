@@ -12,8 +12,8 @@ public class CorsConfig implements WebMvcConfigurer {
         registry.addMapping("/**")
                 .allowedOrigins(
                         "http://localhost:3000",
-                        "http://127.0.0.1:3000"
-                        "https://goormthon-1.goorm.training"
+                        "http://127.0.0.1:3000",
+                        "https://goormthon-1.goorm.training:3000"
                 )
                 .allowedMethods("*")
                 .allowedHeaders("*")
