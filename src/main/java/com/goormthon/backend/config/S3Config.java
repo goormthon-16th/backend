@@ -13,7 +13,6 @@ public class S3Config {
     @Value("${cloud.aws.region.static}")
     private String region;
 
-    // 1. 파일 업로드/삭제용 클라이언트 (이게 없어서 에러가 났습니다)
     @Bean
     public S3Client s3Client() {
         return S3Client.builder()
@@ -21,7 +20,6 @@ public class S3Config {
                 .build();
     }
 
-    // 2. 임시 URL 발급용 프리사이너
     @Bean
     public S3Presigner s3Presigner() {
         return S3Presigner.builder()

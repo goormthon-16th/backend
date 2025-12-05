@@ -30,6 +30,6 @@ public class SpotInfo {
             name = "spot_info_images",
             joinColumns = @JoinColumn(name = "spot_info_id")
     )
-    @Column(name = "image_url")
+    @Column(name = "image_url", columnDefinition = "TEXT")
     private List<String> imageUrls;
 }
